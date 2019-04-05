@@ -6,6 +6,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 
 public class Register extends Composite {
 	private Text text;
@@ -58,6 +60,12 @@ public class Register extends Composite {
 		new Label(this, SWT.NONE);
 		
 		Button btnNewButton = new Button(this, SWT.NONE);
+		btnNewButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				XML parse = new XML(text.getText(), text_1.getText());
+			}
+		});
 		btnNewButton.setText("Submit");
 
 	}
